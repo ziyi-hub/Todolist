@@ -1,6 +1,8 @@
 # Flutter_todolist_Ziyi_WANG
 
 # Introduction des fonctionnalités réalisées
+`Je vous conseille de tester d'abord la création, puis de tester la mise à jour`
+
 <ol>
     <li>
         Une fois inscription effectuée, vous vous connectez avec vos identifiants. Une fois connection effectuée, vous pouvez consulter AllTask.
