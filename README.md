@@ -10,7 +10,6 @@
     </li>
     <li>
         Si l'utilisateur clique sur le bouton de suppression, la Task concernée doit-être supprimée et les données du composant TaskMaster mises à jour.
-        <img src="assets/images/maquette_delete.png">
     </li>
     <li>Le partage et la synchronisation de données. In widget <code>Consumer <'TasksCollection'> </code> avec communication via ChangeNotifier permettant d'interragir avec la source de données partagée,</li>
     <li>
