@@ -254,7 +254,7 @@ class _StateConnectionWidget extends State<_StateConnection> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => AllTasks(
-                          Task: TasksCollection().Task,
+                          tasks: TasksCollection().Task.tasks,
                           callBack: (Todo todo) {},
                         ),
                       ),

@@ -100,14 +100,14 @@ class MyCustomFormState extends State<MyCustomForm> {
                       );
 
                       AllTasks(
-                        Task: params.Task,
+                        tasks: params.Task.tasks,
                         callBack: (Todo todo) {},
                       );
                     } else {
                       params.addTasks(params.Task.tasks.length + 1,
                           completedController, contentController.text);
                       AllTasks(
-                        Task: params.Task,
+                        tasks: params.Task.tasks,
                         callBack: (Todo todo) {},
                       );
 
@@ -120,7 +120,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                       MaterialPageRoute(
                         builder: (context) {
                           return AllTasks(
-                            Task: params.Task,
+                            tasks: params.Task.tasks,
                             callBack: (Todo todo) {},
                           );
                         },

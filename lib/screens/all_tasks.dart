@@ -1,6 +1,6 @@
 import 'package:flutter/semantics.dart';
 import 'package:todolist/screens/create_task.dart';
-import 'package:todolist/data/tasks.dart' as data;
+//import 'package:todolist/data/tasks.dart' as data;
 import 'package:flutter/material.dart';
 import 'package:todolist/models/task.dart';
 import 'package:todolist/components/tasks/task_details.dart';
@@ -10,16 +10,16 @@ import 'package:provider/provider.dart';
 
 class AllTasks extends StatefulWidget {
   final void Function(Todo todo) callBack;
-  final data.Tasks Task;
-  AllTasks({required this.Task, required this.callBack});
+  final List<Todo> tasks;
+  AllTasks({required this.tasks, required this.callBack});
   @override
-  _AllTasks createState() => new _AllTasks(Task: Task);
+  _AllTasks createState() => new _AllTasks(tasks: tasks);
 }
 
 class _AllTasks extends State<AllTasks> {
   //static data.Tasks Task = data.Tasks();
-  final data.Tasks Task;
-  _AllTasks({required this.Task});
+  final List<Todo> tasks;
+  _AllTasks({required this.tasks});
   var _todo = null;
   void showDetails(todo) {
     setState(() {
@@ -38,7 +38,7 @@ class _AllTasks extends State<AllTasks> {
         action: SnackBarAction(
             label: "yes",
             onPressed: () {
-              Task.tasks.remove(todo);
+              tasks.remove(todo);
               setState(() {
                 _todo = null;
               });
@@ -47,14 +47,6 @@ class _AllTasks extends State<AllTasks> {
     );
   }
 
-/*
-  void taskUpdate(todo, content) {
-    setState(() {
-      todo.content = content.text;
-      todo.createdAt = DateTime.now();
-    });
-  }
-*/
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -83,8 +75,7 @@ class _AllTasks extends State<AllTasks> {
                 Consumer<TasksCollection>(
                   builder: (context, func, child) => Container(
                     height: 1000,
-                    child:
-                        TaskMaster(tasks: Task.tasks, showDetails: showDetails),
+                    child: TaskMaster(tasks: tasks, showDetails: showDetails),
                   ),
                 ),
               ],
@@ -97,8 +88,7 @@ class _AllTasks extends State<AllTasks> {
                 children: [
                   Container(
                     height: 1000,
-                    child:
-                        TaskMaster(tasks: Task.tasks, showDetails: showDetails),
+                    child: TaskMaster(tasks: tasks, showDetails: showDetails),
                   ),
                 ],
               ),
@@ -112,7 +102,7 @@ class _AllTasks extends State<AllTasks> {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return CreateTask(todo: Task.tasks[0]);
+                return CreateTask(todo: tasks[0]);
               },
             ),
           );

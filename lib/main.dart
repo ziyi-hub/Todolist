@@ -27,7 +27,7 @@ class TodoList extends StatelessWidget {
       title: 'Todo list',
       home: Scaffold(
         body: AllTasks(
-          Task: TasksCollection().Task,
+          tasks: TasksCollection().Task.tasks,
           callBack: (Todo todo) {},
         ),
       ),
@@ -36,7 +36,7 @@ class TodoList extends StatelessWidget {
       routes: {
         // When navigating to the "/all_tasks" route, build the all_tasks widget.
         '/all_tasks': (context) => AllTasks(
-              Task: TasksCollection().Task,
+              tasks: TasksCollection().Task.tasks,
               callBack: (Todo todo) {},
             ),
         // When navigating to the "/one_task" route, build the one_task widget.
